@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Comment - Game Comments</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Create Comment</h1>
+        <nav>
+            <a href="/">Back to Home</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/comments/create" method="POST">
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="4" required><%= comment ? comment.content : '' %></textarea>
+            </div>
+            <div class="form-group">
+                <label for="tags">Tags (comma-separated):</label>
+                <input type="text" id="tags" name="tags" value="<%= comment ? comment.tags.join(', ') : '' %>">
+            </div>
+            <div class="form-group">
+                <button type="submit">Save Comment</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 Game Comments</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Comment - Game Comments</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>View Comment</h1>
+        <nav>
+            <a href="/">Back to Home</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Comment Details</h2>
+        <p><%= comment.content %></p>
+        <p>Tags: <%= comment.tags.join(', ') %></p>
+    </main>
+    <footer>
+        <p>© 2024 Game Comments</p>
+    </footer>
+</body>
+</html>

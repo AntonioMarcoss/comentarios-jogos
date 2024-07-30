@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Game Comments</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Game Comments</h1>
+        <nav>
+            <a href="/comments/create">Create Comment</a>
+            <form action="/auth/logout" method="POST">
+                <button type="submit">Logout</button>
+            </form>
+        </nav>
+    </header>
+    <main>
+        <h2>All Comments</h2>
+        <% if (comments.length > 0) { %>
+            <ul>
+                <% comments.forEach(comment => { %>
+                    <li>
+                        <p><%= comment.content %></p>
+                        <p>Tags: <%= comment.tags.join(', ') %></p>
+                        <a href="/comments/edit/<%= comment._id %>">Edit</a>
+                        <form action="/comments/delete/<%= comment._id %>" method="POST" style="display:inline;">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No comments available.</p>
+        <% } %>
+    </main>
+    <footer>
+        <p>© 2024 Game Comments</p>
+    </footer>
+</body>
+</html>
